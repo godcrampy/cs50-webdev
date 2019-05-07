@@ -1,0 +1,33 @@
+$color :red;
+$another-color: blue;
+
+h1 {
+    color: $color;
+}
+
+div {
+    p {
+        color:  $another-color;
+    }
+}
+
+%message{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.5em;
+    border: 1px solid black;
+}
+
+.success{
+    @extend %message;
+    background-color: lightgreen;
+}
+
+.warning{
+    @extend %message;
+    background-color: red;
+}
+
+.danger{
+    @extend %message;
+    background-color: gold;
+}

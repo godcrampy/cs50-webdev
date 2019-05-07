@@ -1,0 +1,27 @@
+h1 {
+  color: red;
+}
+
+div p {
+  color: blue;
+}
+
+.danger, .warning, .success {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 1.5em;
+  border: 1px solid black;
+}
+
+.success {
+  background-color: lightgreen;
+}
+
+.warning {
+  background-color: red;
+}
+
+.danger {
+  background-color: gold;
+}
+
+/*# sourceMappingURL=sass-style.css.map */
