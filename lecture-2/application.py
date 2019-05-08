@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 import datetime
 
 app = Flask(__name__)
@@ -8,9 +8,12 @@ def index():
     headline = 'Hellah'
     return render_template('index.html', headline=headline)
 
-@app.route('/<string:name>')
-def name(name):
-    return f'<h1>Hello, {name}!</h1>'
+@app.route('/hello', methods = ['POST', 'GET'])
+def hello():
+    if request.method == 'GET':
+        return render_template('hello.html', name="")
+    name = request.form.get('name')
+    return render_template('hello.html', name=name)
 
 @app.route('/bye')
 def bye():
@@ -32,3 +35,7 @@ def names():
 def fruits():
     fruits = ['apple', 'banana', 'orange', 'cherries']
     return render_template('fruits.html', fruits=fruits)
+
+@app.route('/form')
+def form():
+    return render_template('form.html')
