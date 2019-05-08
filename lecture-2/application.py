@@ -1,7 +1,13 @@
 from flask import Flask, render_template, request
+from flask_session import Session
 import datetime
 
 app = Flask(__name__)
+notes = []
+
+app.config['SESSION_PERMANENT'] = False
+app.config['SESSION_TYPE'] = 'filesystem'
+Session(app)
 
 @app.route('/')
 def index():
@@ -14,11 +20,6 @@ def hello():
         return render_template('hello.html', name="")
     name = request.form.get('name')
     return render_template('hello.html', name=name)
-
-@app.route('/bye')
-def bye():
-    headline = 'Goodbye'
-    return render_template('index.html', headline=headline)
 
 @app.route('/newyear')
 def new_year():
@@ -39,3 +40,12 @@ def fruits():
 @app.route('/form')
 def form():
     return render_template('form.html')
+
+@app.route('/notes', methods=['GET', 'POST'])
+def todo():
+    if request.method == 'POST':
+        note = request.form.get('note')
+        notes.append(note)
+
+    return render_template('notes.html', notes=notes)
+    
