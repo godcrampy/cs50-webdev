@@ -1,0 +1,11 @@
+{% extends 'lists.html'%}
+
+{% block head %}
+    Fruits
+{% endblock %}
+
+{% block list%}
+{%for fruit in fruits%}
+ <li>{{fruit}}</li>
+ {% endfor %}
+ {% endblock%}
