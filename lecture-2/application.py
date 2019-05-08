@@ -3,7 +3,6 @@ from flask_session import Session
 import datetime
 
 app = Flask(__name__)
-notes = []
 
 app.config['SESSION_PERMANENT'] = False
 app.config['SESSION_TYPE'] = 'filesystem'
